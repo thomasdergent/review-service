@@ -3,7 +3,7 @@ name: Test, Build and Upload artifact
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   compile:
@@ -61,3 +61,4 @@ jobs:
 
       - name: Upload container to Docker Hub with Push
         run: docker push ${{ secrets.DOCKER_USER }}/review-service-ex:latest
+        #test
