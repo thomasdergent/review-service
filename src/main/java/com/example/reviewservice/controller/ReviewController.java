@@ -19,17 +19,7 @@ public class ReviewController {
     public String getData(){
         return "some data";
     }
-
-    @PostConstruct
-    public void fillDB(){
-        if(reviewRepository.count()==0){
-            reviewRepository.save(new Review(003, "687468435454",5));
-            reviewRepository.save(new Review(002, "687468435454",2));
-            reviewRepository.save(new Review(001, "687468434567",4));
-        }
-
-        System.out.println("Reviews test: " + reviewRepository.findReviewsByISBN("687468435454").size());
-    }
+    
 
     @GetMapping("/reviews/user/{userId}")
     public List<Review> getReviewsByUserId(@PathVariable Integer userId){
