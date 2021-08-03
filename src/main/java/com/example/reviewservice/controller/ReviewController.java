@@ -19,7 +19,7 @@ public class ReviewController {
     public String getData(){
         return "some data";
     }
-    
+
 
     @GetMapping("/reviews/user/{userId}")
     public List<Review> getReviewsByUserId(@PathVariable Integer userId){
