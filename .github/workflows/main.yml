@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         java: [ 8 ]
-        ongodb-version: ['4.0', '4.2', '4.4']
+        mongodb-version: ['4.0', '4.2', '4.4']
     name: Java ${{ matrix.java }} compile
     steps:
       - uses: actions/checkout@master
