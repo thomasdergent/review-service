@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
@@ -13,6 +14,11 @@ public class ReviewController {
 
     @Autowired
     private ReviewRepository reviewRepository;
+
+    @GetMapping("/test")
+    public String getData(){
+        return "some data";
+    }
 
     @GetMapping("/reviews/user/{userId}")
     public List<Review> getReviewsByUserId(@PathVariable Integer userId){
@@ -41,6 +47,7 @@ public class ReviewController {
     public Review updateReview(@RequestBody Review updatedReview){
         Review retrievedReview = reviewRepository.findReviewByUserIdAndAndISBN(updatedReview.getUserId(),updatedReview.getISBN());
 
+        retrievedReview.setISBN(updatedReview.getISBN());
         retrievedReview.setScoreNumber(updatedReview.getScoreNumber());
 
         reviewRepository.save(retrievedReview);
