@@ -20,7 +20,6 @@ public class ReviewController {
         return "some data";
     }
 
-
     @GetMapping("/reviews/user/{userId}")
     public List<Review> getReviewsByUserId(@PathVariable Integer userId){
         return reviewRepository.findReviewsByUserId(userId);
