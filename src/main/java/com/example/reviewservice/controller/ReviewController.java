@@ -15,11 +15,6 @@ public class ReviewController {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    @GetMapping("/test")
-    public String getData(){
-        return "some data";
-    }
-
     @GetMapping("/reviews/user/{userId}")
     public List<Review> getReviewsByUserId(@PathVariable Integer userId){
         return reviewRepository.findReviewsByUserId(userId);
